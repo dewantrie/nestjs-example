@@ -33,6 +33,7 @@ $ npm install
 ```
 
 ## Running the app
+Copy .env.default to .env
 
 ```bash
 # development
