@@ -5,6 +5,6 @@ export class HealthException extends ServiceUnavailableException {
 
   constructor(error: unknown) {
     super();
-    	this.error = error;
+    this.error = error;
   }
 }
