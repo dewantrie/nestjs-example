@@ -7,10 +7,12 @@ import { ConfigService } from '@nestjs/config';
 (async () => {
   const app = await NestFactory.create(AppModule);
   const configService = app.get<ConfigService>(ConfigService);
+  const serviceRootPath = configService.get<string>('API_ROOT_PATH');
   const serviceName = configService.get<string>('API_NAME');
   const servicePort = configService.get<number>('API_PORT');
   const serviceVersion = configService.get<string>('npm_package_version');
 
+  app.setGlobalPrefix(serviceRootPath);
   app.useGlobalFilters(new AllExceptionFilter());
   app.use(json({ limit: '10mb' }));
 
